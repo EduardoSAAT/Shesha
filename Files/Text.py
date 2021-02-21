@@ -23,6 +23,7 @@ class Text:
 
     #******* Metodos NO Staticos *******
     def __init__(self):
+        pass
         # Abrir un Archivo de Texto
 
 
