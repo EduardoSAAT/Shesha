@@ -138,35 +138,36 @@
       <screen x="-1024" y="0" width="1024" height="768" />
     </state>
     <state x="-727" y="146" key="FileChooserDialogImpl/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613623886924" />
-    <state width="1308" height="102" key="GridCell.Tab.0.bottom" timestamp="1613884442249">
+    <state width="1308" height="145" key="GridCell.Tab.0.bottom" timestamp="1614051007034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613884442249" />
+    <state width="1308" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1614051007034" />
     <state width="1308" height="128" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1613800165198" />
-    <state width="1308" height="102" key="GridCell.Tab.0.center" timestamp="1613884442249">
+    <state width="1308" height="145" key="GridCell.Tab.0.center" timestamp="1614051007033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="102" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613884442249" />
+    <state width="1308" height="145" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1614051007033" />
     <state width="1308" height="128" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1613800165198" />
-    <state width="1308" height="102" key="GridCell.Tab.0.left" timestamp="1613884442249">
+    <state width="1308" height="145" key="GridCell.Tab.0.left" timestamp="1614051007033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="102" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613884442248" />
+    <state width="1308" height="145" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1614051007033" />
     <state width="1308" height="128" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1613800165198" />
-    <state width="1308" height="102" key="GridCell.Tab.0.right" timestamp="1613884442249">
+    <state width="1308" height="145" key="GridCell.Tab.0.right" timestamp="1614051007033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="102" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613884442249" />
+    <state width="1308" height="145" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1614051007033" />
     <state width="1308" height="128" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1613800165198" />
-    <state x="78" y="0" width="1245" height="728" key="SettingsEditor" timestamp="1613634822803">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-947" y="30" width="1245" height="728" key="SettingsEditor" timestamp="1614045482798">
+      <screen x="-1024" y="0" width="1024" height="768" />
     </state>
-    <state x="-947" y="30" width="933" height="738" key="SettingsEditor/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613627187610" />
+    <state x="-947" y="30" width="933" height="738" key="SettingsEditor/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1614045482798" />
     <state x="78" y="0" width="1245" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1613634822803" />
-    <state x="378" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1613791219069">
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1614044227885">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="378" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1613791219069" />
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1614044227885" />
     <state width="602" height="353" key="javadoc.popup" timestamp="1613541036285">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

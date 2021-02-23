@@ -1,8 +1,14 @@
-import General.Strings as Shesha
-
-#print(Shesha.Strings.getSubStr_posA_posB("Hola MundoHola",3,3))
+import Files.Text as Shesha
 
 
-objeto = "Hola Mundo"
+#Shesha.Text.CreateNewFile("Prueba.txt")
+#print(Shesha.Text.existsFile("Prueba.txt"))
 
-print(Shesha.Strings.numOfContains("Hoalaa Hola Mundo hola","hola",True))
+
+archivo = Shesha.Text("Prueba.txt")
+
+
+print(archivo.deleteLine(1))
+
+
+

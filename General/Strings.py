@@ -271,8 +271,29 @@ class Strings:
                 return Strings.getSubStr_posA_posB(Str,0,posicion)
         else:
             # Mensaje de Error
-            print("ERROR en numOfContains motivo:" + motivo)
+            print("ERROR en subStr_Before_Str motivo:" + motivo)
             return
 
 
 
+    @staticmethod
+    def subStr_After_Str(Str, subStr):
+        # Obtener una subcadena Despues de una subcadena
+        # ERROR entrega none
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+
+        # ----- Comprobar condiciones Inciales ------
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            posicion = Strings.posContains(Str,subStr)
+
+            if posicion>=0:
+                return Strings.getSubStr_posA_posB(Str,posicion+len(subStr),len(Str))
+        else:
+            # Mensaje de Error
+            print("ERROR en subStr_After_Str motivo:" + motivo)
+            return
