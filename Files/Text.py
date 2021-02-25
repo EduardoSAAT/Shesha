@@ -1,4 +1,4 @@
-import General.Strings as Shesha
+import Data_Types.Strings as Shesha
 import os
 class Text():
     # Clase para el manejo de Archivos de Texto
