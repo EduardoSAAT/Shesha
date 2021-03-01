@@ -2,7 +2,7 @@ import Data_Types.Strings as Shesha
 import os
 class Text():
     # Clase para el manejo de Archivos de Texto
-    # Conteo desde 0 en adelante
+    # Conteo desde 1 en Adelante
 
     #Variables Globales de Clase
     pathName = ""  # Nombre y ruta del Archivo
@@ -112,6 +112,7 @@ class Text():
 
     def insertLine(self,index,line):
         # Agregar una linea en una posicion especifica del Archivo
+        # Desde 0 en Adelante posicion Lineal
 
         # ------- Variables Locales ----------
         motivo = "OK"
@@ -140,7 +141,7 @@ class Text():
 
     def getLine(self,index):
         # Obtener una linea del Archivo
-        # None en caso de Error
+        # None en caso de Error  Desde 1 hasta N
 
         # ------- Variables Locales ----------
         motivo = "OK"
@@ -153,7 +154,7 @@ class Text():
         if condiciones == True:
             f = open(self.pathName, "r")
             content = f.readlines()
-            return content.__getitem__(index)
+            return content.__getitem__(index-1)
         else:
             # Mensaje de Error
             print("ERROR en getLine motivo:" + motivo)
@@ -170,12 +171,19 @@ class Text():
         condiciones = True
 
         # ----- Comprobar condiciones Inciales ------
+        if index<=0:
+            condiciones=False
+            motivo="Posicion No Valida"
+
+        if index>self.numLines():
+            condiciones=False
+            motivo="Posicion no Valida"
 
         # ---------------- Proceso  ---------------
         if condiciones == True:
             f = open(self.pathName, "r")
             content = f.readlines()
-            content.pop(index)
+            content.pop(index-1)
 
             f = open(self.pathName, "w")
             content = "".join(content)
@@ -184,3 +192,185 @@ class Text():
         else:
             # Mensaje de Error
             print("ERROR en deleteLine motivo:" + motivo)
+
+
+
+    def numLines(self):
+        # Obtener el numero de lineas de un Archivo, contando desde 1 hasta N
+        # ERROR = -1    Vacio = 0
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = -1
+
+        # ----- Comprobar condiciones Inciales ------
+        if Shesha.Strings.isNull_Empty(self.pathName):
+            condiciones=False
+            motivo="pathFile no definido"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            f = open(self.pathName, "r")
+            count = 0
+
+            for line in f:
+                count+=1
+
+            f.close()
+
+            return count
+        else:
+            # Mensaje de Error
+            print("ERROR en numLines motivo:" + motivo)
+            return salida
+
+
+
+
+
+
+    def getLineLike(self,Patron,pointVar):
+        # Obtener la primer Linea que se parece a un Patron especifico
+        # None NO encontro o Linea con Text
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = None
+
+        # ----- Comprobar condiciones Inciales ------
+        if (Patron==None) or (pointVar==None):
+            condiciones=False
+            motivo="El Patron o PuntoVariacion NULL"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            linea=""
+            NumeroLineas = self.numLines()
+            i=1
+            while i<=NumeroLineas :
+                linea= self.getLine(i)
+
+                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                    salida=linea
+                    i=NumeroLineas+1
+
+                i=i+1
+
+            return salida
+        else:
+            # Mensaje de Error
+            print("ERROR en getLineLike motivo:" + motivo)
+            return salida
+
+
+
+    def posLineLike(Patron,pointVar):
+        # Obtener el numero de la Linea que se parece a un Patron
+        # -1 en ERROR  0 o mas posicion de linea
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = -1
+
+        # ----- Comprobar condiciones Inciales ------
+        if (Patron==None) or (pointVar==None):
+            condiciones=False
+            motivo="Patron o punto de variacion NULL"
+            salida=-1
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            # temp=get
+            pass
+        else:
+            # Mensaje de Error
+            print("ERROR en posLineLike motivo:" + motivo)
+            return salida
+
+
+
+    def getLineLikeN(self,Patron,pointVar,numMatch):
+        # Obtener la N - esima Linea que se parece a un Patron especifico
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = None
+
+        # ----- Comprobar condiciones Inciales ------
+        if Patron==None or pointVar==None:
+            condiciones=False
+            motivo="El patron o punto de variacion es None"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            linea=""
+            numMatchTemp=0
+            numLines = self.numLines()
+
+            i=1
+            while i<=numLines:
+                linea=self.getLine(i)
+
+                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                    numMatchTemp = numMatchTemp+1
+                    if numMatchTemp == numMatch:
+                        salida=linea
+                        i=numLines+1
+
+                i=i+1
+
+            return salida
+        else:
+            # Mensaje de Error
+            print("ERROR en getLineLikeN motivo:" + motivo)
+            return salida
+
+
+    def posLineLikeN(self,Patron,pointVar,numMatch):
+        # Obtener la N - esima Linea que se parece a un Patron especifico
+        # -1 en ERROR  0 NoFound  Mayor a 1 Linea Correcta Encontrada
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = -1
+
+        # ----- Comprobar condiciones Inciales ------
+        if Patron==None or pointVar==None:
+            condiciones=False
+            motivo="El patron o punto de variacion es None"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            linea=""
+            numMatchTemp=0
+            numLines = self.numLines()
+
+            i=1
+            while i<=numLines:
+                linea=self.getLine(i)
+
+                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                    numMatchTemp = numMatchTemp+1
+                    if numMatchTemp == numMatch:
+                        salida=i
+                        i=numLines+1
+
+                i=i+1
+
+            return salida
+        else:
+            # Mensaje de Error
+            print("ERROR en getLineLikeN motivo:" + motivo)
+            return salida
+
+
+
+    
+
+
+

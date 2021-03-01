@@ -12,6 +12,12 @@ import Files.Text as Shesha_Text
 #vec=Shesha_Vector.Vector.delete_Element_ALL(vector,"1")
 
 
-print(Shesha_Strings.Strings.Like("Hola Mundo Hola","HolamundoHola","Hola",False))
+#print(Shesha_Strings.Strings.Like("Hola Mundo Hola","HolamundoHola","Hola",False))
 
 #print(Shesha_Strings.Strings.Like("Hola Mundo Hola","#Mundo#","#",True))
+
+
+archivo = Shesha_Text.Text("Prueba.txt")
+
+print(archivo.getLineLikeN("#Hola#Mundo#","#",3))
+print(archivo.posLineLikeN("#Hola#Mundasdo#","#",3))
