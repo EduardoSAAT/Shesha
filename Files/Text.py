@@ -1,5 +1,9 @@
-import Data_Types.Strings as Shesha
-import os
+import os,sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Data_Types'))
+import Strings as Shesha
+
+
+
 class Text():
     # Clase para el manejo de Archivos de Texto
     # Conteo desde 1 en Adelante
@@ -370,7 +374,7 @@ class Text():
 
 
 
-    
+
 
 
 

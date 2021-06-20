@@ -1,23 +1,15 @@
 import Data_Types.Strings as Shesha_Strings
 import Data_Types.Vector as Shesha_Vector
 import Files.Text as Shesha_Text
+import VisionArtificial.Images_Algoritms as VA
 
 
-
-#print(Shesha_Strings.Strings.replace_SubString_ALL("Hola Mundo Hola Loco Hola","daa","AR"))
-
-
-# vector = Shesha_Strings.Strings.toVector("Hola,1,Mundo,Loco,Como,1",",")
-
-#vec=Shesha_Vector.Vector.delete_Element_ALL(vector,"1")
+#print(Shesha_Strings.Like("Hola Mundo Hola","#Musndo#","#",True))
 
 
-#print(Shesha_Strings.Strings.Like("Hola Mundo Hola","HolamundoHola","Hola",False))
+#archivo = Shesha_Text.Text("Prueba.txt")
+#print(archivo.getLineLikeN("#Hola#Mundo#","#",3))
+#print(archivo.posLineLikeN("#Hola#Mundasdo#","#",3))
 
-#print(Shesha_Strings.Strings.Like("Hola Mundo Hola","#Mundo#","#",True))
+VA.takeScreenShot("C:\TODO\MiScreenShotActual.png")
 
-
-archivo = Shesha_Text.Text("Prueba.txt")
-
-print(archivo.getLineLikeN("#Hola#Mundo#","#",3))
-print(archivo.posLineLikeN("#Hola#Mundasdo#","#",3))
