@@ -1,6 +1,6 @@
 import os,sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Data_Types'))
-import Strings as Shesha
+import Strings
 
 
 
@@ -30,7 +30,7 @@ class Text():
         condiciones = True
 
         # ----- Comprobar condiciones Inciales ------
-        if Shesha.Strings.isNull_Empty(nameFile):
+        if Strings.isNull_Empty(nameFile):
             condiciones=False
             motivo="Nombre de Archivo none o Empty"
 
@@ -52,7 +52,7 @@ class Text():
         condiciones = True
 
         # ----- Comprobar condiciones Inciales ------
-        if Shesha.Strings.isNull_Empty(nameFile):
+        if Strings.isNull_Empty(nameFile):
             condiciones = False
             motivo = "Nombre de Archivo none o Empty"
 
@@ -73,7 +73,7 @@ class Text():
         condiciones = True
 
         # ----- Comprobar condiciones Inciales ------
-        if Shesha.Strings.isNull_Empty(nameFile):
+        if Strings.isNull_Empty(nameFile):
             condiciones = False
             motivo = "Nombre de Archivo none o Empty"
 
@@ -209,7 +209,7 @@ class Text():
         salida = -1
 
         # ----- Comprobar condiciones Inciales ------
-        if Shesha.Strings.isNull_Empty(self.pathName):
+        if Strings.isNull_Empty(self.pathName):
             condiciones=False
             motivo="pathFile no definido"
 
@@ -256,7 +256,7 @@ class Text():
             while i<=NumeroLineas :
                 linea= self.getLine(i)
 
-                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                if Strings.Like(linea,Patron,pointVar,True):
                     salida=linea
                     i=NumeroLineas+1
 
@@ -319,7 +319,7 @@ class Text():
             while i<=numLines:
                 linea=self.getLine(i)
 
-                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                if Strings.Like(linea,Patron,pointVar,True):
                     numMatchTemp = numMatchTemp+1
                     if numMatchTemp == numMatch:
                         salida=linea
@@ -358,7 +358,7 @@ class Text():
             while i<=numLines:
                 linea=self.getLine(i)
 
-                if Shesha.Strings.Like(linea,Patron,pointVar,True):
+                if Strings.Like(linea,Patron,pointVar,True):
                     numMatchTemp = numMatchTemp+1
                     if numMatchTemp == numMatch:
                         salida=i
