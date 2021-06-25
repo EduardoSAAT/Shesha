@@ -1,10 +1,15 @@
 from functools import partial
 from pickletools import ArgumentDescriptor
 import pyautogui
-import Files.Text as Files
 import cv2
 import pytesseract
 pytesseract.pytesseract.tesseract_cmd="C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+
+import os,sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Files'))
+import Text as FileText
+
+
 
 
 
@@ -21,7 +26,7 @@ def takeScreenShot(pathName_Save):
     # ---------------- Proceso  ---------------
     if condiciones == True:
         myScreenshot = pyautogui.screenshot()
-        myScreenshot.save(pathName_Save+".png")
+        myScreenshot.save(pathName_Save)
     else:
         # Mensaje de Error
         print("ERROR en takeScreenShot motivo:" + motivo)
@@ -40,7 +45,7 @@ def getSize(pathImage):
 
     # ----- Comprobar condiciones Inciales ------
 
-    if Files.Text.existsFile(pathImage) != True:
+    if FileText.existsFile(pathImage) != True:
         condiciones = False
         motivo = "Archivo: "+pathImage+" no existe!"
 
@@ -68,7 +73,7 @@ def getSubImage(pathImageIN,pathImageOut,altoStart,altoFinish,anchoStart,anchoFi
 
     # ----- Comprobar condiciones Inciales ------
 
-    if Files.Text.existsFile(pathImageIN) != True:
+    if FileText.existsFile(pathImageIN) != True:
         condiciones = False
         motivo = "Archivo: "+pathImageIN+" no existe!"
 

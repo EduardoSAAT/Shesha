@@ -3,7 +3,7 @@
 from ctypes import py_object
 
 import pyautogui
-
+import os
 
 
 def setMouse_Position(ancho,alto,time):
@@ -139,6 +139,25 @@ def Keyboard_write(mensaje):
         return salida
 
 
+
+
+def getActualPath():
+    # Obtener la ruta actual de ejecucion
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = None
+
+    # ----- Comprobar condiciones Inciales ------
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        return os.path.abspath(os.getcwd())
+    else:
+        # Mensaje de Error
+        print("ERROR en getActualPath motivo:" + motivo)
+        return salida
 
 
 

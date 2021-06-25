@@ -602,3 +602,6 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
         # Mensaje de Error
         print("ERROR en Like motivo:" + motivo)
         return salida
+
+
+

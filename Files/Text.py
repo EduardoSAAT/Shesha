@@ -4,6 +4,37 @@ import Strings
 
 
 
+# Funciones Generales
+
+def existsFile(nameFile):
+    # Eliminar un Archivo
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+
+    # ----- Comprobar condiciones Inciales ------
+    if Strings.isNull_Empty(nameFile):
+        condiciones = False
+        motivo = "Nombre de Archivo none o Empty"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        if os.path.exists(nameFile):
+            return True
+        else:
+            return False
+    else:
+        # Mensaje de Error
+        print("ERROR en DeleteFile motivo:" + motivo)
+
+
+
+
+
+
+# Funciones de Objeto
+
 class Text():
     # Clase para el manejo de Archivos de Texto
     # Conteo desde 1 en Adelante
@@ -62,34 +93,6 @@ class Text():
         else:
             # Mensaje de Error
             print("ERROR en DeleteFile motivo:" + motivo)
-
-
-    @staticmethod
-    def existsFile(nameFile):
-        # Eliminar un Archivo
-
-        # ------- Variables Locales ----------
-        motivo = "OK"
-        condiciones = True
-
-        # ----- Comprobar condiciones Inciales ------
-        if Strings.isNull_Empty(nameFile):
-            condiciones = False
-            motivo = "Nombre de Archivo none o Empty"
-
-        # ---------------- Proceso  ---------------
-        if condiciones == True:
-            if os.path.exists(nameFile):
-                return True
-            else:
-                return False
-        else:
-            # Mensaje de Error
-            print("ERROR en DeleteFile motivo:" + motivo)
-
-
-
-
 
 
 
