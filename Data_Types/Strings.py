@@ -5,6 +5,7 @@
 import os,sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Data_Types'))
 import Vector as Sesha_Vector
+import Numbers as SNumbers
 
 
 
@@ -441,7 +442,7 @@ def replace_SubString_ALL(Str, subStr, StrNew):
 
 def toVector(Str, separator):
     # Convertir una cadena a un vector de subcadenas
-    # RETURN None error, otro caso vector
+    # RETURN None error, otro caso vector[]
 
     # ------- Variables Locales ----------
     motivo = "OK"
@@ -555,7 +556,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
 
         # Convertir en fragmentos la cadena Parecida
         vecFragmentCadParecida = toVector(StrSimilar, pointVar)
-        vecFragmentCadParecida = Sesha_Vector.Vector.delete_Element_ALL(vecFragmentCadParecida, "")
+        vecFragmentCadParecida = Sesha_Vector.delete_Element_ALL(vecFragmentCadParecida, "")
 
         # Buscar la posicion de cada framento de CadParecida en cadOriginal
         posFound = 0  # posicion donde se encuentra el fragmento
@@ -564,7 +565,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
 
         subCadProgresiva = StrA  # Ir avanzando conforme se encuentran fragmentos
         i = 0
-        while i < Sesha_Vector.Vector.lenFix(vecFragmentCadParecida):
+        while i < Sesha_Vector.lengFix(vecFragmentCadParecida):
             subCadProgresiva = getSubStr_posA_posB(subCadProgresiva, posInicio, posFin)
             posFound = posContains(subCadProgresiva, vecFragmentCadParecida[i])
 
@@ -584,8 +585,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
 
         # Si no tienen punto de variacion Inicial entonces Primer fragmento debe ser el inicio de CadOriginal
         if (pointVar == getSubStr_posA_posB(StrSimilar, 0, len(pointVar))) == False:
-            if (vecFragmentCadParecida[0] == getSubStr_posA_posB(StrA, 0,
-                                                                         len(vecFragmentCadParecida[0]))) == False:
+            if (vecFragmentCadParecida[0] == getSubStr_posA_posB(StrA, 0,len(vecFragmentCadParecida[0]))) == False:
                 salida = False
 
         # Si no tienen punto de variacion Final entonces Ultimo fragmento debe ser el fin de CadOriginal
@@ -593,8 +593,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
         posB = len(StrA)
         if (pointVar == getSubStr_posA_posB(StrSimilar, len(StrSimilar) - len(pointVar),
                                                     len(StrSimilar))) == False:
-            if (vecFragmentCadParecida[len(vecFragmentCadParecida) - 1] == getSubStr_posA_posB(StrA, posA,
-                                                                                                       posB)) == False:
+            if (vecFragmentCadParecida[len(vecFragmentCadParecida) - 1] == getSubStr_posA_posB(StrA, posA,posB)) == False:
                 salida = False
 
         return salida
@@ -602,6 +601,223 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
         # Mensaje de Error
         print("ERROR en Like motivo:" + motivo)
         return salida
+
+
+
+def lengFix(value):
+    # Obtener la longitud de una cadena
+    # regresa valores en 0 o N
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = 0
+
+    # ----- Comprobar condiciones Inciales ------
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        if type(value)==str:
+            return len(value)
+        else:
+            return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en lengFix motivo:" + motivo)
+        return salida
+
+
+
+
+
+def deleteSubStr_posA_posB(cad,posA,posB):
+        # Eliminar una una subcadena desde una PosA hasta una PosB
+        # En cado de error return ""
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = ""
+
+        # ----- Comprobar condiciones Inciales ------
+
+        if (posA<0) or posA>len(cad):
+            condiciones=False
+            motivo="PosA no valida"
+
+        if (posB<posA) or (posB>len(cad)):
+            condiciones=False
+            motivo="PosB no valida"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            salida = cad[0:posA]
+            salida = salida+cad[posB:len(cad)]
+
+            return salida
+        else:
+            # Mensaje de Error
+            print("ERROR en delete_posA_posB motivo:" + motivo)
+            return salida
+
+
+def deleteSubStr_PosA_Size(cad, posA, Size):
+    # Eliminar una subcadena desde una PosA, y con un tamaño espesifico
+    # en caso de error return ""
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = ""
+
+    posB = posA+Size
+    # ----- Comprobar condiciones Inciales ------
+
+    if (posA<0) or (posA>len(cad)):
+        condiciones=False
+        motivo="PosA no valida"
+
+    if (posB<posA) or (posB>len(cad)):
+        condiciones=False
+        motivo="Size no valido"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        salida = deleteSubStr_posA_posB(cad,posA,posB)
+
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en deleteSubStr_PosA_Size motivo:" + motivo)
+        return salida
+
+
+
+def to_String(value):
+        # Convertir un dato a String, error return ""
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+        salida = ""
+
+        # ----- Comprobar condiciones Inciales ------
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            salida = str(value)
+
+            return salida
+        else:
+            # Mensaje de Error
+            print("ERROR en to_String motivo:" + motivo)
+            return salida
+
+
+def getSubStr_PosA_Size(cad, PosA, size):
+    # Obtener una subcadena de un tamaño especifico, empezando desde PosA
+    # return "" en caso de errores
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = ""
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if ( ((size+PosA) > lengFix(cad)) or (size < 0)):
+        condiciones=False
+        motivo="Longitud de SubCad fuera de CadOriginal"
+
+    if ((PosA < 0) or (PosA > lengFix(cad))):
+        condiciones=False
+        motivo="PosInicial fuera de CadOriginal"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        salida = getSubStr_posA_posB(cad,PosA,PosA+size)
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en getSubStr_PosA_Size motivo:" + motivo)
+        return salida
+
+
+
+
+
+def AdjustSize(cad,dir,symbol,size):
+    # Ajustar una cadena a cierta Longitud, rellenando de simbolo en direccion Izq o Der
+    # dir -> "L" "R"
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = ""
+
+    tamOriginal = 0
+    diferencia = 0
+    # ----- Comprobar condiciones Inciales ------
+
+    if (lengFix(symbol) < 1):
+        condiciones=False
+        motivo="Simbolo de longitud CERO"
+
+    if (size < 0):
+        condiciones=False
+        motivo="Valor de Longitud Negativo"
+
+    if (cad == None):
+        condiciones=False
+        motivo="Cadena Null"
+
+    if ((dir=="L") or (dir == "R")) == False:
+        condiciones=False
+        motivo="Direccion no soportada, usa: L o R"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        # Calcular la diferencia
+        salida=cad
+        tamOriginal = lengFix(cad)
+        diferencia = size - tamOriginal
+
+        # Aumentar
+        if (diferencia>=0):
+            # Generar la Cadena a concatenar
+            cadAux = ""
+            numConcat = SNumbers.roundInteger(diferencia/lengFix(symbol),"UP")
+
+            for i in range(0,numConcat):
+                cadAux = cadAux+symbol
+            cadAux = getSubStr_PosA_Size(cadAux,0,diferencia)
+
+            # Concatenar a la Cadena Original
+            if dir == "L":
+                salida = cadAux+salida  #Izquierda
+            else:
+                salida = salida+cadAux  #Derecha
+        else:
+            # Disminuir la cadena
+            if dir == "L":
+                salida = getSubStr_posA_posB(salida,(-diferencia),len(salida)) #Izquierda
+            else:
+                salida = getSubStr_posA_posB(salida,0,(tamOriginal+diferencia)) #Derecha
+
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en AdjustSize motivo:" + motivo)
+        return salida
+
+
+
+
+
+
+
+
+
 
 
 

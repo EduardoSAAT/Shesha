@@ -273,29 +273,41 @@ class Text():
 
 
 
-    def posLineLike(Patron,pointVar):
-        # Obtener el numero de la Linea que se parece a un Patron
-        # -1 en ERROR  0 o mas posicion de linea
+    def posLineLike(self,Patron,pointVar):
+        # Obtener la primer Linea que se parece a un Patron especifico
+        # None NO encontro o Linea con Text
 
         # ------- Variables Locales ----------
         motivo = "OK"
         condiciones = True
-        salida = -1
+        salida = None
 
         # ----- Comprobar condiciones Inciales ------
         if (Patron==None) or (pointVar==None):
             condiciones=False
-            motivo="Patron o punto de variacion NULL"
-            salida=-1
+            motivo="El Patron o PuntoVariacion NULL"
 
         # ---------------- Proceso  ---------------
         if condiciones == True:
-            # temp=get
-            pass
+            linea=""
+            NumeroLineas = self.numLines()
+            i=1
+            while i<=NumeroLineas :
+                linea= self.getLine(i)
+
+                if Strings.Like(linea,Patron,pointVar,True):
+                    salida=i
+                    i=NumeroLineas+1
+
+                i=i+1
+
+            return salida
         else:
             # Mensaje de Error
             print("ERROR en posLineLike motivo:" + motivo)
             return salida
+
+
 
 
 
