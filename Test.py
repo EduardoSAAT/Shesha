@@ -44,9 +44,20 @@ vector.addRigth("1")
 
 #vector.print("\n")
 
-print(SNumbers.to_float_Force("-100",0))
+#print(SNumbers.to_float_Force("-100",0))
 
-print(STime.valideTimeFormat("24:60:1:2"))
+#print(STime.valideTimeFormat("24:60:1:2"))
+
+timeA = "1:10:20:1000"
+timeB = "2:20:11:12"
+
+valor = 20000
+
+
+#print(SNumbers.to_Int_Force("1,250.6",0,"DOWN"))
+
+#print(STime.calculeTime("1:20:10:100","+","0:10:5:150"))
+
 
 
 

@@ -200,7 +200,10 @@ def getSubStr_StrA_StrB(cad, StrA, StrB):
 
 
 
-def numOfContains(Str, subStr, ignoreCase):
+
+
+
+def numOfContains_Element(Str, subStr, ignoreCase):
     # Obtener el numero de veces que un subCadena se encuentra en una Cadena
 
     # ------- Variables Locales ----------
@@ -240,9 +243,8 @@ def numOfContains(Str, subStr, ignoreCase):
         return contador
     else:
         # Mensaje de Error
-        print("ERROR en numOfContains motivo:" + motivo)
+        print("ERROR en numOfContains_Element motivo:" + motivo)
         return contador
-
 
 
 
@@ -342,7 +344,7 @@ def posContains_Num(Str, subStr, numN, ignoreCase):
     numContains = 0
     cadAux = Str
 
-    if ((numN <= 0) or (numN > numOfContains(Str, subStr, ignoreCase))):
+    if ((numN <= 0) or (numN > numOfContains_Element(Str, subStr, ignoreCase))):
         condiciones = False
         motivo = "el valor de numM no es Correcto"
 
@@ -420,7 +422,7 @@ def replace_SubString_ALL(Str, subStr, StrNew):
     salida = Str
 
     # ----- Comprobar condiciones Inciales ------
-    numConteins = numOfContains(Str, subStr, False)
+    numConteins = numOfContains_Element(Str, subStr, False)
     if (numConteins <= 0) and (len(subStr) > 0):
         condiciones = False
         motivo = subStr + " No encontrada en:" + Str
@@ -441,7 +443,7 @@ def replace_SubString_ALL(Str, subStr, StrNew):
 
 
 def toVector(Str, separator):
-    # Convertir una cadena a un vector de subcadenas
+    # Convertir una cadena a un vector de subcadenas vector[] de python
     # RETURN None error, otro caso vector[]
 
     # ------- Variables Locales ----------
@@ -473,7 +475,7 @@ def toVector(Str, separator):
                     Str = getSubStr_posA_posB(Str, len(separator), len(Str))
 
             # Obtener entonces el numero de elementos
-            numElements = numOfContains(Str, separator, False)
+            numElements = numOfContains_Element(Str, separator, False)
 
             if numElements >= 1:
                 # Inicializar el Vector
@@ -551,7 +553,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
             pointVar = pointVar.upper()
 
         # Eliminar puntos de variacion Repetidos de la Cadena Parecida EJM: ho$$la -> ho$la
-        while numOfContains(StrSimilar, pointVar + pointVar, False) >= 2:
+        while numOfContains_Element(StrSimilar, pointVar + pointVar, False) >= 2:
             StrSimilar = replace_SubString_ALL(StrSimilar, pointVar + pointVar, pointVar)
 
         # Convertir en fragmentos la cadena Parecida
@@ -814,7 +816,51 @@ def AdjustSize(cad,dir,symbol,size):
 
 
 
+def numOfContains_Conjunt(Str, conjunt, separator):
+    # Descripcion: Encontrar el numero de elementos de un conjunto se encuentran en una cadena
+    # Ejmplo   "Holamundo,como" "Hola" = 1
+    #
 
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = 0
+
+    # Agregar el separador al final de conjunto EVITA ERRORES
+    conjunt = conjunt+separator
+    sizeConjunto = numOfContains_Element(conjunt,separator,True)
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if isNull_Empty(Str):
+        condiciones=False
+        motivo="Cadena null o vacia"
+
+    if isNull_Empty(conjunt):
+        condiciones=False
+        motivo="Conjunto null o vacio"
+
+    if isNull_Empty(separator):
+        condiciones=False
+        motivo="Separador null o vacio"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        for x in range(0,sizeConjunto):
+            # Obtener el elemento del conjunto
+            elemento = subStr_Before_Str(conjunt,separator)
+
+            # Quitar el elemento ya evaluado
+            conjunt=subStr_After_Str(conjunt,separator)
+
+            # Buscarlo Cad y Sumar coincidencias Totales
+            salida = salida+numOfContains_Element(Str,elemento,False)
+
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en numOfContains_Conjunt motivo:" + motivo)
+        return salida
 
 
 

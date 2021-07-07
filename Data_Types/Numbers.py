@@ -208,6 +208,63 @@ def to_float_Force(value,error):
         return salida
 
 
+
+
+def to_Int_Force(value,error,rounder):
+    # Convertir un numero a float de forma forzada
+    # Si es un strings con caracteres eliminarlos ejemplo
+    # $520     ->   520
+    # 1,250.50  -> 1250 o 1251 dependiendo el redondeo
+    # 1252. -> 1252
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = error
+
+    # ----- Comprobar condiciones Inciales ------
+    redondeos = "UP,DOWN,CLOSE"
+    if SStrings.numOfContains_Conjunt(rounder,redondeos,",")!=1:
+        condiciones=False
+        motivo="Metodo de redondeo no valido, metodos valido: "+redondeos
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+
+        # Si la entrada es un String eliminar caracteres excepto el . decimal
+        if type(value)==str:
+            # Eliminar todo elemento que no sea .
+            x = 0
+            while x<len(value)-1:
+                caracter = value[x:x + 1]
+
+                # Si no es un numero entonces eliminar ese elemento
+                if isNumber(caracter, True) == False and caracter!="." and caracter!="-":
+                    value = SStrings.deleteSubStr_posA_posB(value, x, x + 1)
+                    x = x - 1
+                x=x+1
+
+            # Eliminar los . en caso de que esten al principio y al final, en ese caso no sirven
+            if value[0:1] == ".":
+                value = SStrings.deleteSubStr_posA_posB(value,0,1)
+
+            if (value[len(value)-1:len(value)] == "."):
+                value = SStrings.deleteSubStr_posA_posB(value, len(value)-1, len(value))
+        else:
+            #En otro caso simplemente transformar
+            value = to_float(value,error)
+            return roundInteger(value,rounder)
+
+        value = to_float(value,error)
+        return roundInteger(value,rounder)
+    else:
+        # Mensaje de Error
+        print("ERROR en to_float_Force motivo:" + motivo)
+        return salida
+
+
+
+
 def roundInteger(value,mode):
     # Redonder un numero a Entero
     # Modos "UP" "DOWN" "CLOSE"
