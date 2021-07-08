@@ -716,6 +716,29 @@ def to_String(value):
             return salida
 
 
+def to_String_fromVector(vector,separador):
+    # Convertir un vector a String usando separador
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = ""
+
+    # ----- Comprobar condiciones Inciales ------
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        for x in range(0,len(vector)):
+            salida = salida+to_String(vector[x])+separador
+
+        salida = salida[0:len(salida)-1]
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en to_String_fromVector motivo:" + motivo)
+        return salida
+
+
 def getSubStr_PosA_Size(cad, PosA, size):
     # Obtener una subcadena de un tamaño especifico, empezando desde PosA
     # return "" en caso de errores

@@ -204,9 +204,11 @@ def convertTime_Medida2Medida(time,medidaIN,medidaOUT):
 
 def convertTime_Format2Medida(time, medida):
     # Convertir un Tiempo a una mediad en horas, minutos, segundos, microsegundos
-    # Float con valor numerico
-    # Formato hh:mm:ss:ms
-    # 0 en caso de error
+    # time:  valor en formato hh:mm:ss:ms
+    # medida: medida de salida del tiempo
+    #
+    #
+    # Return 0 en Error, Exito return N entero
 
     # ------- Variables Locales ----------
     motivo = "OK"
@@ -273,7 +275,7 @@ def convertTime_Format2Medida(time, medida):
         return salida
     else:
         # Mensaje de Error
-        print("ERROR en convert_Time motivo:" + motivo)
+        print("ERROR en convertTime_Format2Medida motivo:" + motivo)
         return salida
 
 
@@ -326,15 +328,18 @@ def getMedida(time,medida):
 
 
 def convertTime_Medida2Format(time,medida):
-    # Convertir un Tiempo a una mediad en horas, minutos, segundos, microsegundos
-    # Float con valor numerico
-    # Formato hh:mm:ss:ms
+    # Convertir un Tiempo a un Formato
+    # param time: Valor numerico Entero recibido
+    # param medida: indicador de medida de time recibido, si es hh o mm o ss o ms
+    #
+    #
+    # Return Formato hh:mm:ss:ms
     # Error return 00:00:00:0000
 
     # ------- Variables Locales ----------
     motivo = "OK"
     condiciones = True
-    salida = 0
+    salida = "00:00:00:0000"
     medidas = "hh,mm,ss,ms"
 
     # ----- Comprobar condiciones Inciales ------
@@ -374,8 +379,13 @@ def convertTime_Medida2Format(time,medida):
 
 
 
-def calculeTime(timeA,operation,timeB):
+def calculeTime_FormatxFormat(timeA, operation, timeB):
     # Realizar una operacion entre el tiempoA y el tiempoB
+    # Ejemplo timeA = 1:10:15:100
+    #         timeB = 0:10:11:000
+    #         operation = +
+    # Resultado = 1:20:26:1000
+    #
     # hh formato de 24 horas
     # Formato hh:mm:ss:ms
     # Resultado en Formato hh:mm:ss:ms
@@ -428,5 +438,132 @@ def calculeTime(timeA,operation,timeB):
         return salida
     else:
         # Mensaje de Error
-        print("ERROR en calculeTime motivo:" + motivo)
+        print("ERROR en calculeTime_FormatxFormat motivo:" + motivo)
+        return salida
+
+
+
+
+def calculeTime_FormatxMedida(timeA, operation, value, medida):
+    # Realizar una operacion entre un tiempo en Formato y un medida de unidad de Tiempo
+    # Ejemplo timeA = 1:10:20:100
+    #         operation = +
+    #         value = 10    medida = "ss"
+    # Esto significa sumar 10seg al timeA
+    # Resultado 1:10:30:1000
+    #
+    # hh formato de 24 horas
+    # Formato hh:mm:ss:ms
+    # Resultado en Formato hh:mm:ss:ms
+    # Error return None
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = None
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if valideTimeFormat(timeA)==False:
+        condiciones=False
+        motivo="timeA no tiene formato correcto"
+
+    medidas = "hh,mm,ss,ms"
+    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+        condiciones=False
+        motivo="Medida no valida, medidas Validas: "+medidas
+
+    operaciones = "+,-,*,/"
+    if SStrings.numOfContains_Conjunt(operation,operaciones,",")!=1:
+        condiciones=False
+        motivo="Operacion no valida, operadores validos: "+operaciones
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        # Convertir tiempos
+        msA = convertTime_Format2Medida(timeA,"ms")
+        msValue = convertTime_Medida2Medida(value, medida, "ms")
+
+        # Operar los tiempos
+        result = 0
+        if operation == "+":
+            result = msA + msValue
+
+        if operation == "-":
+            result = msA - msValue
+
+        if operation == "*":
+            result = msA * msValue
+
+        if operation == "/":
+            result = msA / msValue
+
+        # Convertir el resultado a formato
+        salida = convertTime_Medida2Format(result,"ms")
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en calculeTime_FormatxMedida motivo:" + motivo)
+        return salida
+
+
+
+def setTime(timeA,value,medida):
+    # Colocar a un Time un valor especifico de medida
+    # Ejemplo timeA = 1:12:20:100
+    #         value = 10
+    #         medida = "mm"
+    # Esto indica colocar a 10 los minutos del TimeA
+    #
+    # hh formato de 24 horas
+    # Resultado en Formato hh:mm:ss:ms
+    # Error return timeA
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = timeA
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if valideTimeFormat(timeA)==False:
+        condiciones=False
+        motivo="timeA no tiene formato correcto"
+
+    medidas = "hh,mm,ss,ms"
+    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+        condiciones=False
+        motivo="Medida no valida, medidas validas: "+medidas
+    else:
+        if (value<0):
+            condiciones=False
+            motivo="Valores negativos no admitidos"
+        else:
+            if (value>=60) and ((medida=="mm") or (medida=="ss")):
+                condiciones=False
+                motivo="Valor mayor a 60 para minutos o segundos"
+
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        v = SStrings.toVector(timeA,":")
+
+        if medida == "hh":
+            v[0] = value
+
+        if medida == "mm":
+            v[1] = value
+
+        if medida == "ss":
+            v[2] = value
+
+        if medida == "ms":
+            v[3] = value
+
+
+        salida = SStrings.to_String_fromVector(v,":")
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en setTime motivo:" + motivo)
         return salida

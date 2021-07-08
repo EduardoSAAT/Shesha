@@ -42,40 +42,15 @@ vector.addRigth("100")
 vector.addRigth("200")
 vector.addRigth("1")
 
-#vector.print("\n")
-
-#print(SNumbers.to_float_Force("-100",0))
-
-#print(STime.valideTimeFormat("24:60:1:2"))
-
 timeA = "1:10:20:1000"
 timeB = "2:20:11:12"
 
 valor = 20000
 
-
-#print(SNumbers.to_Int_Force("1,250.6",0,"DOWN"))
+print(STime.calculeTime_FormatxMedida(timeA,"-",55,"hh"))
 
 #print(STime.calculeTime("1:20:10:100","+","0:10:5:150"))
 
+#print(STime.setTime(timeA,"5","ss"))
 
 
-
-#v2 =SVector.to_Vector_OnlyNumbers(vector)
-#SVector.to_Vector_Dx(v2)
-#vector.print()
-
-#print(SStrings.deleteSubStr_PosA_Size("Hola Mundo",2,8))
-
-#cadena = "$1,0345.52"
-#cadena = SNumbers.to_float_Force(cadena,0)
-#print(cadena)
-
-#dato = vector.getItem_index(7)
-#print(dato)
-#dato = SNumbers.to_float_Force(dato,0)
-#print(dato)
-
-#vector.print()
-
-#print(SNumbers.to_float_Force("152.0",0))
