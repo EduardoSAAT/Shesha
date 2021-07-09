@@ -203,7 +203,7 @@ def getSubStr_StrA_StrB(cad, StrA, StrB):
 
 
 
-def numOfContains_Element(Str, subStr, ignoreCase):
+def numOfContains__Str_IN_Str(subStr,Str,ignoreCase):
     # Obtener el numero de veces que un subCadena se encuentra en una Cadena
 
     # ------- Variables Locales ----------
@@ -243,7 +243,7 @@ def numOfContains_Element(Str, subStr, ignoreCase):
         return contador
     else:
         # Mensaje de Error
-        print("ERROR en numOfContains_Element motivo:" + motivo)
+        print("ERROR en numOfContains__Str_IN_Str motivo:" + motivo)
         return contador
 
 
@@ -344,7 +344,7 @@ def posContains_Num(Str, subStr, numN, ignoreCase):
     numContains = 0
     cadAux = Str
 
-    if ((numN <= 0) or (numN > numOfContains_Element(Str, subStr, ignoreCase))):
+    if ((numN <= 0) or (numN > numOfContains__Str_IN_Str(subStr,Str, ignoreCase))):
         condiciones = False
         motivo = "el valor de numM no es Correcto"
 
@@ -422,7 +422,7 @@ def replace_SubString_ALL(Str, subStr, StrNew):
     salida = Str
 
     # ----- Comprobar condiciones Inciales ------
-    numConteins = numOfContains_Element(Str, subStr, False)
+    numConteins = numOfContains__Str_IN_Str(subStr,Str, False)
     if (numConteins <= 0) and (len(subStr) > 0):
         condiciones = False
         motivo = subStr + " No encontrada en:" + Str
@@ -475,7 +475,7 @@ def toVector(Str, separator):
                     Str = getSubStr_posA_posB(Str, len(separator), len(Str))
 
             # Obtener entonces el numero de elementos
-            numElements = numOfContains_Element(Str, separator, False)
+            numElements = numOfContains__Str_IN_Str(separator,Str, False)
 
             if numElements >= 1:
                 # Inicializar el Vector
@@ -553,7 +553,7 @@ def Like(StrA, StrSimilar, pointVar,ignoreCase):
             pointVar = pointVar.upper()
 
         # Eliminar puntos de variacion Repetidos de la Cadena Parecida EJM: ho$$la -> ho$la
-        while numOfContains_Element(StrSimilar, pointVar + pointVar, False) >= 2:
+        while numOfContains__Str_IN_Str(pointVar + pointVar,StrSimilar, False) >= 2:
             StrSimilar = replace_SubString_ALL(StrSimilar, pointVar + pointVar, pointVar)
 
         # Convertir en fragmentos la cadena Parecida
@@ -839,7 +839,7 @@ def AdjustSize(cad,dir,symbol,size):
 
 
 
-def numOfContains_Conjunt(Str, conjunt, separator):
+def numOfContains__Conjunt_IN_Str(conjunt,separator,Str):
     # Descripcion: Encontrar el numero de elementos de un conjunto se encuentran en una cadena
     # Ejmplo   "Holamundo,como" "Hola" = 1
     #
@@ -851,7 +851,7 @@ def numOfContains_Conjunt(Str, conjunt, separator):
 
     # Agregar el separador al final de conjunto EVITA ERRORES
     conjunt = conjunt+separator
-    sizeConjunto = numOfContains_Element(conjunt,separator,True)
+    sizeConjunto = numOfContains__Str_IN_Str(separator,conjunt, True)
 
     # ----- Comprobar condiciones Inciales ------
 
@@ -877,12 +877,12 @@ def numOfContains_Conjunt(Str, conjunt, separator):
             conjunt=subStr_After_Str(conjunt,separator)
 
             # Buscarlo Cad y Sumar coincidencias Totales
-            salida = salida+numOfContains_Element(Str,elemento,False)
+            salida = salida + numOfContains__Str_IN_Str(elemento,Str, False)
 
         return salida
     else:
         # Mensaje de Error
-        print("ERROR en numOfContains_Conjunt motivo:" + motivo)
+        print("ERROR en numOfContains__Conjunt_IN_Str motivo:" + motivo)
         return salida
 
 

@@ -132,7 +132,7 @@ def inRange(valMin, value, valMax):
 
 
 
-def porcentax(number,porcent):
+def porcentax_value(number, porcent):
     # Obtener el porcentaje de un numero
 
     # ------- Variables Locales ----------
@@ -150,13 +150,46 @@ def porcentax(number,porcent):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        salida = (number+porcent)/100
+        salida = number/100*porcent
 
         return salida
     else:
         # Mensaje de Error
-        print("ERROR en porcentax motivo:" + motivo)
+        print("ERROR en porcentax_value motivo:" + motivo)
         return salida
+
+
+def porcentax_relax(sizeTotal, sizeSubtotal):
+    # Calcular la relacion de porcentaje entre un conjunto total y un subconjunto
+    # sizeTotal: Conjunto total de elementos
+    # sizeSubtotal: Numero del subtotal de elementos
+    # Resultado relacion del porcentaje
+    # Error return 0
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = 0
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if isNumber(sizeTotal,False)==False:
+        condiciones = False
+        motivo = "sizeTotal no es un numero"
+
+    if isNumber(sizeSubtotal,False)==False:
+        condiciones=False
+        motivo = "sizeSubtotal no es un numero"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        salida = (100*sizeSubtotal)/sizeTotal
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en porcentax_relax motivo:" + motivo)
+        return salida
+
 
 
 
@@ -174,10 +207,13 @@ def to_float_Force(value,error):
 
     # ----- Comprobar condiciones Inciales ------
 
+    if type(value)==str:
+        if len(value)==0:
+            return salida
+
     # ---------------- Proceso  ---------------
     if condiciones == True:
-
-        # Si la entrada es un String eliminar caracteres excepto el . decimal
+        # Si la entrada es un String, purificarlo -> eliminar caracteres excepto el . decimal
         if type(value)==str:
             # Eliminar todo elemento que no sea .
             x = 0
@@ -196,12 +232,15 @@ def to_float_Force(value,error):
 
             if (value[len(value)-1:len(value)] == "."):
                 value = SStrings.deleteSubStr_posA_posB(value, len(value)-1, len(value))
+
+            # Comprobar si despues del proceso de purificar el String, este puede ser transformable
+            if isNumber(value,True):
+                return float(value)
+            else:
+                return salida
         else:
             #En otro caso simplemente transformar
             return to_float(value,error)
-
-
-        return float(value)
     else:
         # Mensaje de Error
         print("ERROR en to_float_Force motivo:" + motivo)
@@ -224,7 +263,7 @@ def to_Int_Force(value,error,rounder):
 
     # ----- Comprobar condiciones Inciales ------
     redondeos = "UP,DOWN,CLOSE"
-    if SStrings.numOfContains_Conjunt(rounder,redondeos,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(redondeos,",",rounder)!=1:
         condiciones=False
         motivo="Metodo de redondeo no valido, metodos valido: "+redondeos
 

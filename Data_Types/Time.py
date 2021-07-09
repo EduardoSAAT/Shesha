@@ -1,8 +1,10 @@
 # Libreria para el menejo de Tiempo y Fechas
 from datetime import datetime
-import Data_Types.Strings as SStrings
-import Data_Types.Numbers as SNumbers
-import Data_Types.Vector as SVector
+import os,sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Data_Types'))
+import Strings as SStrings
+import Numbers as SNumbers
+import Vector as SVector
 
 
 def getActualTime_Year():
@@ -145,11 +147,11 @@ def convertTime_Medida2Medida(time,medidaIN,medidaOUT):
 
     # ----- Comprobar condiciones Inciales ------
 
-    if SStrings.numOfContains_Conjunt(medidaIN,formatos,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str( formatos, ",", medidaIN)!=1:
         condiciones = False
         motivo="Formato de entrada no reconocido, formatos valido: " + formatos
 
-    if SStrings.numOfContains_Conjunt(medidaOUT,formatos,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(formatos, ",", medidaOUT)!=1:
         condiciones = False
         motivo="Formato de salida no reconocido, formatos valido: " + formatos
 
@@ -222,7 +224,7 @@ def convertTime_Format2Medida(time, medida):
         condiciones=False
         motivo="time no valido en formato: hh:mm:ss:ms"
 
-    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(medidas, ",", medida)!=1:
         condiciones=False
         motivo="Medida no valida, medidas validas: "+medidas
 
@@ -249,28 +251,24 @@ def convertTime_Format2Medida(time, medida):
             salida = salida + (mins/60)
             salida = salida + (segs/3600)
             salida = salida + (micr/3600000000)
-            pass
 
         if medida == "mm":
             salida = SNumbers.to_float(mins,0)
             salida = salida + (hora*60)
             salida = salida + (segs/60)
             salida = salida + (micr/60000000)
-            pass
 
         if medida == "ss":
             salida = SNumbers.to_float(segs,0)
             salida = salida + (hora*3600)
             salida = salida + (mins*60)
             salida = salida + (micr/1000000)
-            pass
 
         if medida == "ms":
             salida = SNumbers.to_Int(micr,0)
             salida = salida + (hora*60*60*1000000)
             salida = salida + (mins*60*1000000)
             salida = salida + (segs*1000000)
-            pass
 
         return salida
     else:
@@ -298,7 +296,7 @@ def getMedida(time,medida):
         condiciones = False
         motivo = "Time no valido, formato: hh:mm:ss:ms"
 
-    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(medidas, ",", medida)!=1:
         condiciones=False
         motivo = "La medida a obtener no es valida, medidas valida: " + medidas
 
@@ -344,7 +342,7 @@ def convertTime_Medida2Format(time,medida):
 
     # ----- Comprobar condiciones Inciales ------
 
-    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(medidas, ",", medida)!=1:
         condiciones=False
         motivo="Medida no valida, medidas validas: "+medidas
 
@@ -406,7 +404,7 @@ def calculeTime_FormatxFormat(timeA, operation, timeB):
         condiciones=False
         motivo="timeB no tiene formato correcto"
 
-    if SStrings.numOfContains_Conjunt(operation,"+,-,*,/",",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str("+,-,*,/", ",", operation)!=1:
         condiciones=False
         motivo="Operador no valido, operadores validos: +,-,*,/"
 
@@ -469,12 +467,12 @@ def calculeTime_FormatxMedida(timeA, operation, value, medida):
         motivo="timeA no tiene formato correcto"
 
     medidas = "hh,mm,ss,ms"
-    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(medidas, ",",medida)!=1:
         condiciones=False
         motivo="Medida no valida, medidas Validas: "+medidas
 
     operaciones = "+,-,*,/"
-    if SStrings.numOfContains_Conjunt(operation,operaciones,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(operaciones, ",",operation)!=1:
         condiciones=False
         motivo="Operacion no valida, operadores validos: "+operaciones
 
@@ -531,7 +529,7 @@ def setTime(timeA,value,medida):
         motivo="timeA no tiene formato correcto"
 
     medidas = "hh,mm,ss,ms"
-    if SStrings.numOfContains_Conjunt(medida,medidas,",")!=1:
+    if SStrings.numOfContains__Conjunt_IN_Str(medidas, ",",medida)!=1:
         condiciones=False
         motivo="Medida no valida, medidas validas: "+medidas
     else:

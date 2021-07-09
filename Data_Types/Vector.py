@@ -464,8 +464,78 @@ class Vector():
             print("ERROR en to_OnlyNumbers motivo:" + motivo)
 
 
+    def numOfContains_Element(self,element):
+        # Contar el numero de veces que se repite un elemento en el vector
+        # elemento a contar
+        # Error return 0
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+
+        # ----- Comprobar condiciones Inciales ------
+
+        if self.lengFix()<=0:
+            condiciones=False
+            motivo="Vector vacio"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            count = 0
+            for x in range(0,self.lengFix()):
+                if self.vRaiz[x] == element:
+                    count = count+1
+
+            return count
+        else:
+            # Mensaje de Error
+            print("ERROR en numOfContains_Element motivo:" + motivo)
+            return 0
 
 
+
+
+
+
+def getSubVector_PosA_PosB(vector, posA, posB):
+    # Obtener un subvector desde la posicionA hasta la posicionB
+    # Error return VectorVacio
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = Vector()
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if vector.lengFix() <= 0:
+        condiciones = False
+        motivo = "Vector vacio"
+
+    if (posA > vector.lengFix()) or (posA < 0):
+        condiciones = False
+        motivo = "PosA no valida"
+
+    if (posB > vector.lengFix()) or (posB < 0):
+        condiciones = False
+        motivo = "PosB no valida"
+
+    if posA > posB:
+        condiciones = False
+        motivo = "PosA > PosB"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        newVector = Vector()
+
+        for x in range(posA,posB):
+            newVector.addRigth(vector.getItem_index(x))
+
+        return newVector
+    else:
+        # Mensaje de Error
+        print("ERROR en getSubVector_PosA_PosB motivo:" + motivo)
+        return salida
 
 
 
@@ -611,6 +681,64 @@ def to_Vector_Dx(Svector):
     else:
         # Mensaje de Error
         print("ERROR en to_Vector_Dx motivo:" + motivo)
+        return salida
+
+
+
+
+
+def detele_Element_ALL_byCondition(vector,condicion,value):
+    # Eliminar todos los elementos de un vector que cumplan una condicion
+    # vector - Vector de Clase Shesha
+    # condicion - ">,<,==,>=,<="
+    # value - Valor Derecho de la condicion
+
+    # Return vector unicamente con elementos que si cumplen la condicion
+    # Return vector vacio en caso de error
+
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = Vector()
+
+    # ----- Comprobar condiciones Inciales ------
+
+    operadores=">,<,==,>=,<="
+    if SStrings.num:
+        condiciones = False
+        motivo ="Condicion no valida, condiciones validas: "+operadores
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+
+        for x in range(0,vector.lengFix()):
+            dato = vector.getItem_index(x)
+
+            if condicion == ">":
+                if dato>value:
+                    salida.addRigth(dato)
+
+            if condicion == "<":
+                if dato<value:
+                    salida.addRigth(dato)
+
+            if condicion == "==":
+                if dato==value:
+                    salida.addRigth(dato)
+
+            if condicion == ">=":
+                if dato>=value:
+                    salida.addRigth(dato)
+
+            if condicion == "<=":
+                if dato<=value:
+                    salida.addRigth(dato)
+
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en detele_Element_ALL_byCondition motivo:" + motivo)
         return salida
 
 

@@ -38,19 +38,30 @@ vector.addRigth("Hola")
 vector.addRigth("A")
 vector.addRigth("21")
 vector.addRigth("$1,0345.52")
-vector.addRigth("100")
+vector.addRigth("A")
 vector.addRigth("200")
-vector.addRigth("1")
+vector.addRigth("A")
 
 timeA = "1:10:20:1000"
 timeB = "2:20:11:12"
 
-valor = 20000
+condicion=">="
+operadores=">,<,==,>=,<="
+print(SStrings.numOfContains__Conjunt_IN_Str(condicion, operadores, ","))
+#SVector.detele_Element_ALL_byCondition(vector,">=",200).print(",")
 
-print(STime.calculeTime_FormatxMedida(timeA,"-",55,"hh"))
+
+
+#result = STime.calculeTime_FormatxFormat(timeA,"-",timeB)
+
+#SVector.getSubVector_PosA_PosB(vector,0,12).print(",")
 
 #print(STime.calculeTime("1:20:10:100","+","0:10:5:150"))
 
 #print(STime.setTime(timeA,"5","ss"))
+
+
+#print(SNumbers.porcentax_relax(200,0.2))
+
 
 
