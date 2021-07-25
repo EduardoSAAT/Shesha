@@ -6,6 +6,10 @@ import System.Systems_Scripts as Sys
 import Data_Types.Numbers as SNumbers
 import Data_Types.Experiment as SExp
 import Data_Types.Time as STime
+import System.Systems_Scripts as SSystem
+import System.Email as SEmail
+import pyautogui as pyautogui
+import Robots.Whatsapp as WhatsBot
 
 
 
@@ -45,10 +49,22 @@ vector.addRigth("A")
 timeA = "1:10:20:1000"
 timeB = "2:20:11:12"
 
-condicion=">="
-operadores=">,<,==,>=,<="
-print(SStrings.numOfContains__Conjunt_IN_Str(condicion, operadores, ","))
-#SVector.detele_Element_ALL_byCondition(vector,">=",200).print(",")
+condicion=""
+operadores=","
+
+
+v = SVector.Vector()
+v.addRigth(33135)
+v.addRigth(3313)
+
+#print(SStrings.numOfContains__Str_IN_Conjunt(condicion,operadores,","))
+#SVector.detele_Element_ALL_byCondition(v,"<=",33000).print(",")
+
+
+# bot = WhatsBot.Whatsapp_bot("C:\TODO\DESARROLLO TECNICO\D_Programacion\Python\Librerias\Shesha\Robots\Config_Whatsapp.txt")
+
+# bot.sendMessage("Technotitlan","Apurate, el tiempo es ahora!")
+
 
 
 

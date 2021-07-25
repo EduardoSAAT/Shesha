@@ -495,6 +495,77 @@ class Vector():
 
 
 
+    def deleteRigth(self):
+        # Eliminar un elemento por la Derecha del vector
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+
+        # ----- Comprobar condiciones Inciales ------
+
+        if self.lengFix()<=0:
+            condiciones=False
+            motivo="Vector vacio"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            self.vRaiz.pop(len(self.vRaiz)-1)
+        else:
+            # Mensaje de Error
+            print("ERROR en deleteRigth motivo:" + motivo)
+            return 0
+
+
+
+    def deleteLeft(self):
+        # Eliminar un elemento por la Izquierda del vector
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+
+        # ----- Comprobar condiciones Inciales ------
+
+        if self.lengFix()<=0:
+            condiciones=False
+            motivo="Vector vacio"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            self.vRaiz.pop(0)
+        else:
+            # Mensaje de Error
+            print("ERROR en deleteLeft motivo:" + motivo)
+            return 0
+
+
+    def deleteIndex(self,index):
+        # Eliminar un elemento del vector por Index
+
+        # ------- Variables Locales ----------
+        motivo = "OK"
+        condiciones = True
+
+        # ----- Comprobar condiciones Inciales ------
+
+        if self.lengFix()<=0:
+            condiciones=False
+            motivo="Vector vacio"
+
+        if (index<0) or (index>=self.lengFix()):
+            condiciones=False
+            motivo="Index fuera de rango del vector"
+
+        # ---------------- Proceso  ---------------
+        if condiciones == True:
+            self.vRaiz.pop(index)
+        else:
+            # Mensaje de Error
+            print("ERROR en deleteIndex motivo:" + motivo)
+            return 0
+
+
 
 
 def getSubVector_PosA_PosB(vector, posA, posB):
@@ -508,21 +579,34 @@ def getSubVector_PosA_PosB(vector, posA, posB):
 
     # ----- Comprobar condiciones Inciales ------
 
-    if vector.lengFix() <= 0:
-        condiciones = False
-        motivo = "Vector vacio"
+    posA = SNumbers.to_Int(posA,-1)
+    posB = SNumbers.to_Int(posB,-1)
 
-    if (posA > vector.lengFix()) or (posA < 0):
-        condiciones = False
-        motivo = "PosA no valida"
+    if posA == -1:
+        condiciones=False
+        motivo = "PosA no es un entero"
 
-    if (posB > vector.lengFix()) or (posB < 0):
-        condiciones = False
-        motivo = "PosB no valida"
+    if posB == -1:
+        condiciones=False
+        motivo = "PosB no es un entero"
 
-    if posA > posB:
-        condiciones = False
-        motivo = "PosA > PosB"
+
+    if condiciones==True:
+        if vector.lengFix() <= 0:
+            condiciones = False
+            motivo = "Vector vacio"
+
+        if (posA > vector.lengFix()) or (posA < 0):
+            condiciones = False
+            motivo = "PosA no valida"
+
+        if (posB > vector.lengFix()) or (posB < 0):
+            condiciones = False
+            motivo = "PosB no valida"
+
+        if posA > posB:
+            condiciones = False
+            motivo = "PosA > PosB"
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
@@ -705,35 +789,41 @@ def detele_Element_ALL_byCondition(vector,condicion,value):
     # ----- Comprobar condiciones Inciales ------
 
     operadores=">,<,==,>=,<="
-    if SStrings.num:
+    if SStrings.numOfContains__Str_IN_Conjunt(condicion,operadores,",")!=1:
         condiciones = False
         motivo ="Condicion no valida, condiciones validas: "+operadores
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
+        salida = clone(vector)
 
+        # Ver cuales elementos hay que eliminar
         for x in range(0,vector.lengFix()):
             dato = vector.getItem_index(x)
 
-            if condicion == ">":
-                if dato>value:
-                    salida.addRigth(dato)
-
-            if condicion == "<":
-                if dato<value:
-                    salida.addRigth(dato)
-
+            # Si hay que comparar Strings
             if condicion == "==":
-                if dato==value:
-                    salida.addRigth(dato)
+                if (dato==value):
+                    salida.deleteIndex(x)
 
-            if condicion == ">=":
-                if dato>=value:
-                    salida.addRigth(dato)
 
-            if condicion == "<=":
-                if dato<=value:
-                    salida.addRigth(dato)
+            #Si hay que comparar datos numericos
+            if SNumbers.isNumber(dato,False) and SNumbers.isNumber(value,False):
+                if condicion == ">":
+                    if (dato>value):
+                        salida.deleteIndex(x)
+
+                if condicion == "<":
+                    if (dato<value):
+                        salida.deleteIndex(x)
+
+                if condicion == ">=":
+                    if (dato>=value):
+                        salida.deleteIndex(x)
+
+                if condicion == "<=":
+                    if (dato<=value):
+                        salida.deleteIndex(x)
 
         return salida
     else:

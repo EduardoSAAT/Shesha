@@ -1,0 +1,16 @@
+# Configuracion del Robot de Whatsapp con Vision Artificial
+
+# TIPS
+# Este robot requiere clickar en los botones para hacer las acciones
+# -Usar un navegador web no prederminado exclusivo para el uso de whatsapp, de esta forma si se abre una ventana web inesperadamente no afectara el uso del robot, porque se abrira en otro web browser independiente
+# - Tambien tener en primer lugar la pestaña de whatsapp web de esta forma si por algun motivo se abre otra pestana, no afectara el uso del robot
+
+
+Coordenadas(Start)
+	Step(1) alto(750) ancho(580) time(2) # Abrir navegador Web
+	Step(2) alto(16) ancho(1060) time(2) # Abrir pestaña en navegador
+	Step(3) alto(153) ancho(132) time(2) # Buscar persona o grupo
+	Step(4) alto(700) ancho(600) time(2) # Escribir en cuadro de chat
+	Step(5) alto(700) ancho(1333) time(2) # Darle a boton enviar
+	Step(6) alto(1) ancho(1) time(2) # Darle a boton AddArchivo
+Coordenadas(End)

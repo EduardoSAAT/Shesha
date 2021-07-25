@@ -889,4 +889,39 @@ def numOfContains__Conjunt_IN_Str(conjunt,separator,Str):
 
 
 
+def numOfContains__Str_IN_Conjunt(Str,Conjunt,Separador):
+    # Descripcion: Encontrar el numero de veces que se encuentra una String en un Conjunto de Strings
+    # Ejemplo  ">="  ">,<,==,>=,<="  resultado=1
+    # Error return 0
+
+    # ------- Variables Locales ----------
+    motivo = "OK"
+    condiciones = True
+    salida = 0
+
+
+    # ----- Comprobar condiciones Inciales ------
+
+    if isNull_Empty(Conjunt):
+        condiciones = False
+        motivo = "Conjunto null o vacio"
+
+    # ---------------- Proceso  ---------------
+    if condiciones == True:
+        v = toVector(Conjunt,Separador)
+
+        for x in range(0,len(v)):
+            if Str == v[x]:
+                salida = salida+1
+
+        return salida
+    else:
+        # Mensaje de Error
+        print("ERROR en numOfContains__Str_IN_Conjunt motivo:" + motivo)
+        return salida
+
+
+
+
+
 
