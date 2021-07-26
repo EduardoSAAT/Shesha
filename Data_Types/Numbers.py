@@ -176,6 +176,10 @@ def porcentax_relax(sizeTotal, sizeSubtotal):
     if isNumber(sizeTotal,False)==False:
         condiciones = False
         motivo = "sizeTotal no es un numero"
+    else:
+        if sizeTotal==0:
+            condiciones = False
+            return salida
 
     if isNumber(sizeSubtotal,False)==False:
         condiciones=False

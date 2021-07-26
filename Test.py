@@ -10,6 +10,7 @@ import System.Systems_Scripts as SSystem
 import System.Email as SEmail
 import pyautogui as pyautogui
 import Robots.Whatsapp as WhatsBot
+import platform
 
 
 
@@ -66,7 +67,7 @@ v.addRigth(3313)
 # bot.sendMessage("Technotitlan","Apurate, el tiempo es ahora!")
 
 
-
+# VA.getScreenSize()
 
 #result = STime.calculeTime_FormatxFormat(timeA,"-",timeB)
 
@@ -80,4 +81,4 @@ v.addRigth(3313)
 #print(SNumbers.porcentax_relax(200,0.2))
 
 
-
+print(platform.system())

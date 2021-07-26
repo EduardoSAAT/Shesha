@@ -30,10 +30,13 @@ def setMouse_Position(ancho,alto,time):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.moveTo(ancho,alto,time)
+        try:
+            pyautogui.moveTo(ancho,alto,time)
+        except Exception as ex:
+            print("Error Raro en setMouse_Position motivo:", ex)
     else:
         # Mensaje de Error
-        print("ERROR en numOfContains motivo:" + motivo)
+        print("ERROR en setMouse_Position motivo:" + motivo)
         return salida
 
 
@@ -77,7 +80,10 @@ def Mouse_LeftClick():
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.click()
+        try:
+            pyautogui.click()
+        except Exception as ex:
+            print("Error Raro en Mouse_LeftClick motivo:", ex)
     else:
         # Mensaje de Error
         print("ERROR en Mouse_LeftClick motivo:" + motivo)
@@ -138,7 +144,10 @@ def Keyboard_write(mensaje):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.typewrite(mensaje)
+        try:
+            pyautogui.typewrite(mensaje)
+        except Exception as ex:
+            print("Error Raro en Keyboard_write motivo:", ex)
     else:
         # Mensaje de Error
         print("ERROR en Keyboard_write motivo:" + motivo)
@@ -178,7 +187,10 @@ def Keyboard_press(key):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.press(key)
+        try:
+            pyautogui.press(key)
+        except Exception as ex:
+            print("Error Raro en Keyboard_press motivo:", ex)
     else:
         # Mensaje de Error
         print("ERROR en Keyboard_press motivo:" + motivo)
@@ -198,7 +210,10 @@ def Keyboard_pressDOWN(key):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.keyDown(key)
+        try:
+            pyautogui.keyDown(key)
+        except Exception as ex:
+            print("Error Raro en Keyboard_pressDOWN motivo:", ex)
     else:
         # Mensaje de Error
         print("ERROR en Keyboard_pressDOWN motivo:" + motivo)
@@ -217,7 +232,10 @@ def Keyboard_pressUP(key):
 
     # ---------------- Proceso  ---------------
     if condiciones == True:
-        pyautogui.keyUp(key)
+        try:
+            pyautogui.keyUp(key)
+        except Exception as ex:
+            print("Error Raro en Keyboard_pressUP motivo:", ex)
     else:
         # Mensaje de Error
         print("ERROR en Keyboard_pressUP motivo:" + motivo)

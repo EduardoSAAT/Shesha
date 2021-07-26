@@ -2,12 +2,28 @@ from functools import partial
 from pickletools import ArgumentDescriptor
 import pyautogui
 import cv2
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd="C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
-
+import platform
 import os,sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Files'))
 import Text as FileText
+
+# Configuracion del pytesseract
+print("Configurando Images_Algoritms")
+print("  Configurando tesseract")
+import pytesseract
+sistema = platform.system()
+print("    Sistema Detectado:"+sistema)
+if sistema=="Windows":
+    print("    Configurando Path del Tesseract como:C:\\Program Files\\Tesseract-OCR\\tesseract.exe")
+    pytesseract.pytesseract.tesseract_cmd="C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+    print("    Si se desea modificar esta configuracion editar el archivo: Sesha/VisionArtificial/Images_Algoritms.py")
+elif sistema == "Linux":
+    print("    Asegurarse de haber instalado correctamente tesseract")
+    print("    Eso deberia dejar una configuracion funcional de todo y del path del tesseract tambien")
+else:
+    print("    No se encontro configuracion para el sistema operativo")
+    print("    Dejando la configuracion por default")
+
 
 
 

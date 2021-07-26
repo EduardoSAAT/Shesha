@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e156584-a58b-4e0f-90af-f4274a180791" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Robots/Whatsapp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/Email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Types/Strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Types/Strings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Types/Vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Types/Vector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Types/Numbers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Types/Numbers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/Systems_Scripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/Systems_Scripts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VisionArtificial/Images_Algoritms.py" beforeDir="false" afterPath="$PROJECT_DIR$/VisionArtificial/Images_Algoritms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
-  <component name="RunManager" selected="Python.Test">
+  <component name="RunManager" selected="Python.Main">
     <configuration name="Email" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Shesha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -71,6 +69,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Types/Experiment.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shesha" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../DESARROLLO EMPRESARIAL/D_Criptomonedas/System Trader/v3/CrytoMaster" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../../DESARROLLO EMPRESARIAL/D_Criptomonedas/System Trader/v3/CrytoMaster/Main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,34 +140,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Text" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Shesha" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Files/Text.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Main" />
         <item itemvalue="Python.Test" />
         <item itemvalue="Python.Email" />
         <item itemvalue="Python.Experiment" />
         <item itemvalue="Python.Strings (1)" />
-        <item itemvalue="Python.Text" />
       </list>
     </recent_temporary>
   </component>
@@ -190,25 +188,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="104" key="FileChooserDialogImpl/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1624980899493" />
-    <state width="1344" height="153" key="GridCell.Tab.0.bottom" timestamp="1627168839401">
+    <state width="1344" height="194" key="GridCell.Tab.0.bottom" timestamp="1627342946868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="153" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627168839401" />
+    <state width="1344" height="194" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627342946868" />
     <state width="1344" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1624212267594" />
-    <state width="1344" height="153" key="GridCell.Tab.0.center" timestamp="1627168839401">
+    <state width="1344" height="194" key="GridCell.Tab.0.center" timestamp="1627342946867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="153" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627168839401" />
+    <state width="1344" height="194" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627342946867" />
     <state width="1344" height="145" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1624212267593" />
-    <state width="1344" height="153" key="GridCell.Tab.0.left" timestamp="1627168839401">
+    <state width="1344" height="194" key="GridCell.Tab.0.left" timestamp="1627342946867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="153" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627168839401" />
+    <state width="1344" height="194" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627342946867" />
     <state width="1344" height="145" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1624212267593" />
-    <state width="1344" height="153" key="GridCell.Tab.0.right" timestamp="1627168839401">
+    <state width="1344" height="194" key="GridCell.Tab.0.right" timestamp="1627342946867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="153" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627168839401" />
+    <state width="1344" height="194" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.768@0.0.1366.728" timestamp="1627342946867" />
     <state width="1344" height="145" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1624212267594" />
     <state width="1344" height="216" key="GridCell.Tab.1.bottom" timestamp="1624737642463">
       <screen x="0" y="0" width="1366" height="728" />
